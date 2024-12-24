@@ -28,19 +28,19 @@ class alby {
     }
   }
 
-  async rcvOffWdh(a, b, c) {
-    const d = this.channels[a];
-    if (d) {
-      try {
-        await d.unsubscribe(b);
-        if (c) c(null, [b,a]);
-      } catch (error) {
-        if (c) c(error, [b,a]);
-      }
-    } else {
-      if (c) c('Error', a);
-    }
-  }
+  // async rcvOffWdh(a, b, c) {
+  //   const d = this.channels[a];
+  //   if (d) {
+  //     try {
+  //       await d.unsubscribe(b);
+  //       if (c) c(null, [b,a]);
+  //     } catch (error) {
+  //       if (c) c(error, [b,a]);
+  //     }
+  //   } else {
+  //     if (c) c('Error', a);
+  //   }
+  // }
 
   async snd(a, b, d, c) {
     const channel = this.ably.channels.get(a);
