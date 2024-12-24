@@ -49,4 +49,4 @@ class alby {
   }
 }
 
-const ws = new alby('Zs9P2Q.NpzJ6A:VmgYSBwlK54HfY5uK-6nJCPxHGjxvwMLvnuYOE7zURo', 'client123');
+const ws = new alby('Zs9P2Q.NpzJ6A:VmgYSBwlK54HfY5uK-6nJCPxHGjxvwMLvnuYOE7zURo', 'ably');
