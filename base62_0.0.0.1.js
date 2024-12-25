@@ -1,4 +1,4 @@
-class b62 {
+class base62 {
     constructor() {
         this.C = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         this.B = 62;
