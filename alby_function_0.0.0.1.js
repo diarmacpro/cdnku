@@ -1,4 +1,4 @@
-class albygo {
+class ablygo {
   constructor(a, b) {
     this.ably = new Ably.Realtime({ key: a, clientId: b });
     this.channels = {}; // Menyimpan channel dan event yang dilanggan
