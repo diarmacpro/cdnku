@@ -4,7 +4,7 @@ class base62 {
         this.B = 62;
     }
 
-    d(n) {
+    e(n) {
         if (n < 0) return null;
         if (n === 0) return this.C[0];
 
@@ -17,7 +17,7 @@ class base62 {
         return r;
     }
 
-    e(s) {
+    d(s) {
         if (!s || typeof s !== "string") return null;
 
         let r = 0;
