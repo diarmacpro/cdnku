@@ -1,6 +1,6 @@
 class sbs {
-  constructor(url, apiKey, tableName) {
-    this.client = createClient(url, apiKey);
+  constructor(cC, url, apiKey, tableName) {
+    this.client = cC(url, apiKey);
     this.tableName = tableName;
   }
 
