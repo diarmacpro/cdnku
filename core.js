@@ -101,3 +101,32 @@ function aQrl() {
   const query = new URLSearchParams(window.location.search);
   return query.toString() !== '';
 }
+
+
+function chk(str, chunkSize) {
+  const result = [];
+  for (let i = 0; i < str.length; i += chunkSize) {
+    result.push(str.slice(i, i + chunkSize));
+  }
+  return result;
+}
+
+function sKyEnc(v){
+  const dtX = v.split('.');
+  const dtY = JSON.parse(atob(dtX[1]));
+  return btoa(`${dtY.ref}!${dtY.iat}${dtY.exp}!${dtX[2]}`).replace(/=/g, '')
+}
+
+function sKyDec(uB) {
+  const uC = atob(uB).split('!');
+  const uD = chk(uC[1], 10);
+  const aA = { "alg": "HS256", "typ": "JWT" };
+  const aB = { "iss": "supabase", "ref": uC[0], "role": "anon", "iat": parseInt(uD[0]), "exp": parseInt(uD[1]) };
+  const bA = btoa(JSON.stringify(aA)).replace(/=/g, '');
+  const bB = btoa(JSON.stringify(aB)).replace(/=/g, '');
+  const bC = `${bA}.${bB}.${uC[2]}`;
+  const bD = `https://${uC[0]}.supabase.co`;
+  const bE = [bD, bC];
+
+  return bE;
+}
