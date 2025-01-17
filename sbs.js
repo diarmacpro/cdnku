@@ -4,8 +4,8 @@ class sbs {
     this.tableName = tableName;
   }
 
-  async g(table, filters = null, callback) {
-    let query = this.client.from(table).select("*");
+  async g(filters = null, callback) {
+    let query = this.client.from(this.tableName).select("*");
     if (filters) {
       Object.entries(filters).forEach(([key, value]) => {
         query = query.eq(key, value);
