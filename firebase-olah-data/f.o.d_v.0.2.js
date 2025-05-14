@@ -4,7 +4,17 @@ class Fbs {
   }
 
   /**
-   * Menyimpan data ke path tertentu.
+   * Menyimpan data ke path tertentu. Jika value berupa array, setiap item akan disimpan ke path/index.
+   * Jika value berupa object, akan disimpan langsung ke path yang ditentukan.
+   *
+   * @param {string} path - Path di dalam database tempat data akan disimpan.
+   * @param {Object|Array} value - Data yang akan disimpan. Bisa berupa objek atau array.
+   * @param {Function} [callback] - Fungsi yang akan dipanggil setelah proses penyimpanan selesai.
+   *
+   * @example
+   * fbs.iDt('/users', { name: 'John Doe', status: 'active' }, () => {
+   *   console.log('Data berhasil disimpan');
+   * });
    */
   async iDt(path, value, callback) {
     const dataRef = ref(this.db, path);
@@ -26,7 +36,17 @@ class Fbs {
   }
 
   /**
-   * Menambahkan data dengan key unik.
+   * Menambahkan data dengan key unik pada path tertentu. Jika value berupa array, setiap item akan ditambahkan dengan key unik otomatis menggunakan push().
+   * Jika value berupa object, akan ditambahkan sebagai node baru dengan key unik.
+   *
+   * @param {string} path - Path di dalam database tempat data akan ditambahkan.
+   * @param {Object|Array} value - Data yang akan disimpan. Bisa berupa objek atau array.
+   * @param {Function} [callback] - Fungsi yang akan dipanggil setelah data berhasil ditambahkan.
+   *
+   * @example
+   * fbs.iDtKy('/users', { name: 'Jane Doe', status: 'inactive' }, () => {
+   *   console.log('Data berhasil ditambahkan dengan key unik');
+   * });
    */
   async iDtKy(path, value, callback) {
     const dataRef = ref(this.db, path);
